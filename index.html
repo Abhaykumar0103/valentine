@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sameeksha 💘</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      position: relative;
+      width: 340px;
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      color: #ff4d6d;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+      left: 60px;
+      bottom: 40px;
+    }
+
+    #no {
+      background: #ddd;
+      color: #333;
+      right: 60px;
+      bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <h1>Sameeksha 💖</h1>
+    <p>Will you be my Valentine? 💘</p>
+
+    <button id="yes">Yes 😍</button>
+    <button id="no">No 🙃</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const card = document.getElementById("card");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (card.clientWidth - noBtn.clientWidth);
+      const y = Math.random() * (card.clientHeight - noBtn.clientHeight);
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      card.innerHTML = `
+        <h1>YAY SAMEEKSHA!!! 🥰💞</h1>
+        <p>I knew you’d say yes ❤️</p>
+        <div style="font-size:40px;">💘💘💘</div>
+      `;
+    });
+  </script>
+
+</body>
+</html>
