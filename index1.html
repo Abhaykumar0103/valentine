@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Sameeksha 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg,#ff9a9e,#fad0c4,#ffd1ff);
+  background-size: 400% 400%;
+  animation: bg 10s ease infinite;
+  overflow-x: hidden;
+}
+
+@keyframes bg {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* ---------------- MAIN CARD ---------------- */
+
+.container {
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 32px 22px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  animation: pop 1s ease;
+}
+
+@keyframes pop {
+  from {transform:scale(.9); opacity:0;}
+  to {transform:scale(1); opacity:1;}
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.3rem;
+  color: #ff2d6f;
+}
+
+.subtitle {
+  margin-top: 12px;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.name {
+  color:#ff1f6a;
+  font-weight:700;
+}
+
+.heart {
+  font-size: 3rem;
+  margin: 18px 0;
+  animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+  0%,100% {transform:scale(1)}
+  50% {transform:scale(1.25)}
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 22px;
+  position: relative;
+}
+
+button {
+  border: none;
+  padding: 14px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.yes {
+  background: linear-gradient(135deg,#ff4b7d,#ff7fa3);
+  color: white;
+}
+
+.maybe {
+  background: white;
+  color:#ff4b7d;
+}
+
+.nope {
+  background:#ffd6e3;
+}
+
+#response {
+  margin-top: 22px;
+  font-size: 1.1rem;
+  min-height: 45px;
+}
+
+/* ---------------- FINAL SCREEN ---------------- */
+
+#finalScreen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top,#ffb3c7,#ff6fa5,#ff3d7f);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  z-index: 20000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .8s ease;
+}
+
+#finalScreen.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.final-card {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(16px);
+  padding: 36px 26px;
+  border-radius: 28px;
+  max-width: 440px;
+  box-shadow: 0 25px 70px rgba(0,0,0,.2);
+  animation: floatIn 1.2s ease;
+}
+
+@keyframes floatIn {
+  from {transform:translateY(40px) scale(.9);opacity:0;}
+  to {transform:translateY(0) scale(1);opacity:1;}
+}
+
+.final-card h1 {
+  font-size: 2.6rem;
+  color: white;
+}
+
+.final-card p {
+  margin-top: 16px;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.sparkle {
+  font-size: 3.5rem;
+  margin: 18px 0;
+  animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+  50% {transform:scale(1.25);}
+}
+
+/* ---------------- FLOATING HEARTS ---------------- */
+
+.floating span {
+  position: fixed;
+  bottom: -20px;
+  font-size: 22px;
+  animation: floatUp linear forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  to {transform: translateY(-110vh);opacity:0;}
+}
+
+/* ---------------- CONFETTI ---------------- */
+
+.confetti {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 14px;
+  animation: confettiFall linear forwards;
+  z-index: 9999;
+}
+
+@keyframes confettiFall {
+  to {transform: translateY(110vh) rotate(720deg);opacity:0;}
+}
+
+/* ---------------- MUSIC BUTTON ---------------- */
+
+#musicBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 18px;
+  background: white;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+  cursor: pointer;
+  z-index: 30000;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MAIN -->
+<div class="container" id="mainPage">
+  <div class="card">
+    <h1>Hey <span class="name" id="name">Sameeksha</span>… 💕</h1>
+
+    <p class="subtitle">
+      You make my days brighter, my smile wider,  
+      and my heart extremely irresponsible around you 😌✨
+    </p>
+
+    <div class="heart">💗</div>
+
+    <h2>Will you be my Valentine?</h2>
+
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">YES 😳💖</button>
+      <button class="maybe" onclick="sayMaybe()">Maybe… 👀</button>
+      <button class="nope" id="noBtn">No 😒</button>
+    </div>
+
+    <div id="response"></div>
+  </div>
+</div>
+
+<!-- FINAL SCREEN -->
+<div id="finalScreen">
+  <div class="final-card">
+    <h1>I KNEW YOU’D SAY YES 😭💖</h1>
+    <div class="sparkle">✨💞✨</div>
+    <p id="finalText"></p>
+  </div>
+</div>
+
+<div class="floating" id="floating"></div>
+
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5c6e6bbf99.mp3?filename=love-ambient-110397.mp3" type="audio/mpeg">
+</audio>
+
+<div id="musicBtn">🔊</div>
+
+<script>
+const bestieName = "Sameeksha";
+document.getElementById("name").textContent = bestieName;
+
+const response = document.getElementById("response");
+const floating = document.getElementById("floating");
+const noBtn = document.getElementById("noBtn");
+
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+const finalScreen = document.getElementById("finalScreen");
+const finalText = document.getElementById("finalText");
+
+let musicStarted = false;
+
+function startMusic(){
+  if(!musicStarted){
+    music.volume = 0.5;
+    music.play().catch(()=>{});
+    musicStarted = true;
+  }
+}
+
+musicBtn.addEventListener("click",()=>{
+  if(music.paused){
+    music.play();
+    musicBtn.textContent = "🔊";
+  } else {
+    music.pause();
+    musicBtn.textContent = "🔇";
+  }
+});
+
+/* CONFETTI */
+function launchConfetti() {
+  for(let i=0;i<120;i++){
+    const conf = document.createElement("div");
+    conf.className = "confetti";
+    conf.style.left = Math.random()*100 + "vw";
+    conf.style.background = ["#fff","#ffd93d","#ff7fa3","#ff4b7d","#ffe6ef"][Math.floor(Math.random()*5)];
+    conf.style.animationDuration = 3 + Math.random()*3 + "s";
+    document.body.appendChild(conf);
+    setTimeout(()=>conf.remove(),6000);
+  }
+}
+
+/* HEARTS */
+function hearts() {
+  for(let i=0;i<15;i++){
+    const span = document.createElement("span");
+    span.innerHTML = ["💖","💘","💕","❤️","💗"][Math.floor(Math.random()*5)];
+    span.style.left = Math.random()*100 + "vw";
+    span.style.animationDuration = 4 + Math.random()*4 + "s";
+    floating.appendChild(span);
+    setTimeout(()=> span.remove(),8000);
+  }
+}
+
+/* YES ACTION */
+function sayYes(){
+  startMusic();
+  launchConfetti();
+  hearts();
+
+  finalText.innerHTML = `
+    Sameeksha… 💕<br><br>
+    Today, tomorrow, and every random Tuesday —  
+    I choose YOU 😌💖<br><br>
+    Happy Valentine’s, my favorite person ever 💞
+  `;
+
+  setTimeout(()=>{
+    finalScreen.classList.add("show");
+  },1200);
+}
+
+function sayMaybe(){
+  startMusic();
+  response.innerHTML = `Maybe??? 👀  
+  That means I still have a chance to impress you, ${bestieName} 😌✨`;
+  hearts();
+}
+
+/* RUNNING NO BUTTON */
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("touchstart", moveButton);
+
+function moveButton(){
+  startMusic();
+  const x = Math.random()*220 - 110;
+  const y = Math.random()*220 - 110;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+/* auto hearts */
+setInterval(()=>{
+  const span = document.createElement("span");
+  span.innerHTML = "💗";
+  span.style.left = Math.random()*100 + "vw";
+  span.style.animationDuration = "7s";
+  floating.appendChild(span);
+  setTimeout(()=> span.remove(),8000);
+},900);
+</script>
+
+</body>
+</html>
